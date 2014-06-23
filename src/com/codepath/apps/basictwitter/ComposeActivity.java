@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class ComposeActivity extends Activity {
 	
+	TextView tvUserName;
+	TextView tvTgtUserName;
 	EditText etComposeTweet;
 
 	@Override
@@ -18,8 +20,11 @@ public class ComposeActivity extends Activity {
 		setContentView(R.layout.activity_compose);
 		
 		etComposeTweet = (EditText) findViewById(R.id.etComposeTweet);
-
-
+		tvUserName = (TextView) findViewById(R.id.tvUserName);
+		tvTgtUserName = (TextView) findViewById(R.id.tvTgtUserName);
+		
+		String userName = getIntent().getStringExtra("userName");
+		tvUserName.setText(userName);
 	}
 
 	@Override
