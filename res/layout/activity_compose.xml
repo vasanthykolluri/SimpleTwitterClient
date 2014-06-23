@@ -25,12 +25,12 @@
         android:text="user name" />
 
     <TextView
-        android:id="@+id/tvTgtUserName"
+        android:id="@+id/tvUserHandle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvUserName"
         android:layout_below="@+id/tvUserName"
-        android:text="@string/foo_label" />
+         />
 
     <EditText
         android:id="@+id/etComposeTweet"

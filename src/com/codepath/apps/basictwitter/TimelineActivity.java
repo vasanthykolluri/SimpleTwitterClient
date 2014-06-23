@@ -23,7 +23,6 @@ public class TimelineActivity extends Activity {
 	private ArrayList<Tweet> tweets;
 	private TweetArrayAdapter aTweets;
 	private ListView lvTweets;
-	private String userName = "vasanthy";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +120,6 @@ public class TimelineActivity extends Activity {
 
 	public void onComposeAction(MenuItem mi) {
 		Intent composeIntent = new Intent(this, ComposeActivity.class);
-		composeIntent.putExtra("userName", userName);
 		startActivityForResult(composeIntent, REQUEST_CODE);
 	}
 

@@ -17,7 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivProfileImage"
-        android:text="@string/foo_label" />
+        android:text="@string/foo_label"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvBody"
@@ -25,13 +27,14 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvUserName"
         android:layout_below="@+id/tvUserName"
-        android:text="Tweet Body" />
+        android:text="Tweet Body"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/tvRelativeTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvBody"
+        android:layout_alignBottom="@+id/tvUserName"
         android:layout_alignParentRight="true"
         android:text="TextView" />
 

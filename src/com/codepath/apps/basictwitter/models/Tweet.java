@@ -83,6 +83,8 @@ public class Tweet {
 			long dateMillis = sf.parse(rawJsonDate).getTime();
 			relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
 					System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
+			//Formatting "x minutes ago" to "xm"
+			relativeDate = relativeDate.split(" ")[0] + relativeDate.split(" ")[1].charAt(0);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

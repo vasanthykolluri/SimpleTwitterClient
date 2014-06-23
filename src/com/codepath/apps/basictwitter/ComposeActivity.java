@@ -1,30 +1,45 @@
 package com.codepath.apps.basictwitter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ComposeActivity extends Activity {
-	
-	TextView tvUserName;
-	TextView tvTgtUserName;
-	EditText etComposeTweet;
+
+	private TwitterClient client;
+
+	private ImageView ivProfileImage;
+	private TextView tvUserName;
+	private TextView tvUserHandle;
+	private EditText etComposeTweet;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_compose);
-		
+
+		client = TwitterClientApp.getRestClient();
+		ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
 		etComposeTweet = (EditText) findViewById(R.id.etComposeTweet);
 		tvUserName = (TextView) findViewById(R.id.tvUserName);
-		tvTgtUserName = (TextView) findViewById(R.id.tvTgtUserName);
-		
-		String userName = getIntent().getStringExtra("userName");
-		tvUserName.setText(userName);
+		tvUserHandle = (TextView) findViewById(R.id.tvUserHandle);
+
+		// Get the user details
+		getUserCredentials();
+
 	}
 
 	@Override
@@ -47,9 +62,41 @@ public class ComposeActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public void getUserCredentials() {
+		client.verifyCredentials((new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONObject json) {
+
+				try {
+					String profileImageUrl = json.getString("profile_image_url")
+							.toString();
+					
+					String screen_name = json.getString("screen_name").toString();
+					
+					ivProfileImage.setImageResource(android.R.color.transparent);
+					ImageLoader imageLoader = ImageLoader.getInstance();
+					imageLoader.displayImage(profileImageUrl, ivProfileImage);
+					
+					tvUserName.setText(screen_name);
+					tvUserHandle.setText("@" + screen_name);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+
+			@Override
+			public void onFailure(Throwable e, String s) {
+				Toast.makeText(ComposeActivity.this, "verifyCred- onFailure", Toast.LENGTH_LONG).show();
+
+				Log.d("debug", e.toString());
+				Log.d("debug", s.toString());
+			}
+		}));
+	}
+
 	public void onTweetSave(MenuItem mi) {
 		String newTweet = etComposeTweet.getText().toString();
-		
+
 		Intent timeLineIntent = new Intent(this, TimelineActivity.class);
 		timeLineIntent.putExtra("newTweet", newTweet);
 		setResult(200, timeLineIntent);

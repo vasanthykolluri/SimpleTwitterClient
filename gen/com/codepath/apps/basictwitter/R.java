@@ -39,7 +39,7 @@ public final class R {
         public static final int lvTweets=0x7f080004;
         public static final int tvBody=0x7f080005;
         public static final int tvRelativeTime=0x7f080006;
-        public static final int tvTgtUserName=0x7f080002;
+        public static final int tvUserHandle=0x7f080002;
         public static final int tvUserName=0x7f080001;
     }
     public static final class layout {
