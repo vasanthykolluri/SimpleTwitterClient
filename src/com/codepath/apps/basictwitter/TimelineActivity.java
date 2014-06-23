@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -43,7 +42,7 @@ public class TimelineActivity extends Activity {
 				customLoadMoreDataFromApi(max_id);
 			}
 		});
-		
+
 		populateTimeline();
 	}
 

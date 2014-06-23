@@ -29,8 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvUserName"
-        android:layout_below="@+id/tvUserName"
-         />
+        android:layout_below="@+id/tvUserName" />
 
     <EditText
         android:id="@+id/etComposeTweet"
@@ -45,5 +44,26 @@
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/tvLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/etComposeTweet"
+        android:layout_below="@+id/etComposeTweet"
+        android:layout_marginTop="20dp"
+        android:text=" chars left"
+        android:textSize="8sp" />
+
+    <TextView
+        android:id="@+id/tvNumCharsLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvLeft"
+        android:layout_alignBottom="@+id/tvLeft"
+        android:layout_toLeftOf="@+id/tvLeft"
+        android:maxLength="140"
+        android:text="TextView"
+        android:textSize="8sp" />
 
 </RelativeLayout>

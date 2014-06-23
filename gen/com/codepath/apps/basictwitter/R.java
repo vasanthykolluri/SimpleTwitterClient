@@ -31,14 +31,16 @@ public final class R {
         public static final int ic_tweet_label=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080007;
+        public static final int action_settings=0x7f080009;
         public static final int etComposeTweet=0x7f080003;
-        public static final int icCompose=0x7f080008;
-        public static final int icTweet=0x7f080009;
+        public static final int icCompose=0x7f08000a;
+        public static final int icTweet=0x7f08000b;
         public static final int ivProfileImage=0x7f080000;
-        public static final int lvTweets=0x7f080004;
-        public static final int tvBody=0x7f080005;
-        public static final int tvRelativeTime=0x7f080006;
+        public static final int lvTweets=0x7f080006;
+        public static final int tvBody=0x7f080007;
+        public static final int tvLeft=0x7f080004;
+        public static final int tvNumCharsLeft=0x7f080005;
+        public static final int tvRelativeTime=0x7f080008;
         public static final int tvUserHandle=0x7f080002;
         public static final int tvUserName=0x7f080001;
     }
