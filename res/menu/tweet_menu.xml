@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/icTweet"
+        android:icon="@drawable/ic_tweet_label"
+        android:onClick="onTweetSave"
+        android:showAsAction="ifRoom"
+        android:title="Tweet">
+    </item>
+</menu>
